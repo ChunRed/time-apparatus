@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="node_modules/socket.io-client/dist/socket.io.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <input type="input number" id="msg">
+    <button onclick="sendEvent()" > Send </button>
+    <script>
+        let socket;
+        socket = io.connect("http://localhost:3000");
+
+        function sendEvent(){
+            var msg = document.querySelector("#msg").value;
+            socket.emit("web_message", msg);
+        }
+    </script>
+</body>
+</html>
